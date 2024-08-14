@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ebd5d5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+        }
+
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        #logo {
+            height: 60px;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        #navLinks {
+            display: flex;
+            align-items: center;
+        }
+
+        #navLinks a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            margin-left: 30px;
+            font-weight: 700;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        #navLinks a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #4CAF50;
+            left: 0;
+            bottom: -5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        #navLinks a:hover {
+            color: #4CAF50;
+        }
+
+        #navLinks a:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            font-size: 26px;
+            color: rgb(144, 126, 219);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        #feedback {
+            background-color: white;
+            margin-bottom: -300px;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            max-width: 500px;
+            width: 100%;
+ 
+        }
+
+        h2 {
+            color: #333;
+            margin-bottom: 1em;
+            text-align: center;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 0.5em;
+            color: #333;
+            font-weight: bold;
+        }
+
+        input, textarea {
+            width: 100%;
+            padding: 0.75em;
+            margin-bottom: 1em;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1em;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 0.75em;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-size: 1em;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #formStatus {
+            margin-top: 1em;
+            color: green;
+            text-align: center;
+        }
+
+@media (max-width: 768px) {
+    #logo {
+        height: 50px;
+    }
+
+    #navLinks {
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
+    }
+
+    #navLinks a {
+        margin: 10px 0;
+        font-size: 16px;
+    }
+
+    h1 {
+        font-size: 22px;
+    }
+
+    #feedback {
+        padding: 1em;
+        margin-bottom: 0;
+    }
+
+    input, textarea {
+        font-size: 0.9em;
+    }
+
+    button {
+        font-size: 0.9em;
+    }
+}
+
+
+@media (max-width: 480px) {
+    #logo {
+        height: 40px;
+    }
+
+    #navLinks a {
+        font-size: 14px;
+    }
+
+    h1 {
+        font-size: 20px;
+    }
+
+    #feedback {
+        padding: 0.5em;
+    }
+
+    input, textarea {
+        font-size: 0.8em;
+    }
+
+    button {
+        font-size: 0.8em;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="git logo.jpeg" alt="GIT Logo" id="logo">
+            <div id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="faculties.html">Faculties</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+        </nav>
+        <h1>Computer Department</h1>
+    </header>
+    <section id="feedback">
+        <h2>Feedback Form</h2>
+        <form id="feedbackForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" rows="4" required></textarea>
+
+            <button type="submit">Submit</button>
+        </form>
+        <p id="formStatus"></p>
+    </section>
+
+    <script>
+        document.getElementById('feedbackForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+
+            const formStatus = document.getElementById('formStatus');
+            formStatus.textContent = `Thank you, ${name}! Your feedback has been received.`;
+            formStatus.style.color = 'green';
+
+            document.getElementById('feedbackForm').reset();
+            
+            console.log(`Name: ${name}`);
+            console.log(`Email: ${email}`);
+            console.log(`Message: ${message}`);
+        });
+    </script>
+</body>
+</html>

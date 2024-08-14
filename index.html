@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gharda Institute of Technology - Computer Department</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            border-bottom: 5px solid #4CAF50;
+            padding: 10px;
+            height: 80px;
+        }
+
+        #logo {
+            height: 60px;
+            margin-left: 0;
+        }
+
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        #navLinks {
+            display: flex;
+            align-items: center;
+        }
+
+        #navLinks a {
+            text-decoration: none;
+            color: white;
+            font-size: 18px;
+            margin-left: 30px;
+            font-weight: 700;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        #navLinks a::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 3px;
+            background-color: #4CAF50;
+            left: 0;
+            bottom: -5px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.3s ease;
+        }
+
+        #navLinks a:hover {
+            color: #4CAF50;
+        }
+
+        #navLinks a:hover::after {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5em;
+            color: white;
+        }
+
+        h2 {
+            color: #333;
+            margin-top: 0;
+        }
+
+        #department-info {
+            max-width: 1000px;
+            margin: 2em auto;
+            background-color: white;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        p {
+            line-height: 1.6;
+            color: #333;
+        }
+
+        ul {
+            margin: 1em 0;
+            padding-left: 1em;
+        }
+
+        li {
+            margin: 0.5em 0;
+            color: #555;
+        }
+
+        footer {
+            
+            color: rgb(101, 41, 41);
+            text-align: center;
+            bottom: 0;
+            width: 100%;
+        }
+
+
+        #image-slider {
+            max-width: 1000px;
+            margin: 2em auto;
+            position: relative;
+        }
+
+        .slider {
+            position: relative;
+            width: 100%;
+            overflow: hidden;
+            border-radius: 8px;
+        }
+
+        .slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slides img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        .prev, .next {
+            cursor: pointer;
+            position: absolute;
+            top: 50%;
+            width: auto;
+            padding: 16px;
+            margin-top: -22px;
+            color: white;
+            font-weight: bold;
+            font-size: 24px;
+            border-radius: 0 3px 3px 0;
+            user-select: none;
+            background-color: rgba(0, 0, 0, 0.5);
+            transition: background-color 0.3s ease;
+        }
+
+        .next {
+            right: 0;
+            border-radius: 3px 0 0 3px;
+        }
+
+        .prev:hover, .next:hover {
+            background-color: rgba(0, 0, 0, 0.8);
+        }
+        @media (max-width: 768px) {
+            #navLinks {
+                flex-direction: column;
+                align-items: flex-start;
+                margin-top: 10px;
+            }
+
+            #navLinks a {
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            #image-slider {
+                margin: 1em auto;
+            }
+
+            .slides img {
+                height: auto;
+                width: 100%;
+                padding-right: 0;
+            }
+
+            #department-info {
+                padding: 1em;
+            }
+        }
+
+        @media (max-width: 480px) {
+            header {
+                text-align: center;
+            }
+
+            h2 {
+                font-size: 1.5em;
+            }
+
+            .prev, .next {
+                font-size: 18px;
+                padding: 12px;
+            }
+
+            #navLinks a {
+                font-size: 16px;
+                margin-left: 0;
+                margin-bottom: 10px;
+            }
+
+            footer {
+                padding: 15px;
+            }
+
+            #department-info {
+                padding: 0.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="git logo.jpeg" alt="GIT Logo" id="logo">
+            <div id="navLinks">
+                <a href="index.html">Home</a>
+                <a href="faculties.html">Faculties</a>
+                <a href="feedback.html">Feedback</a>
+            </div>
+        </nav>
+        <h2 style="text-align: center; color: rgb(188, 192, 225);">Computer Department</h2>
+    </header>
+
+    <!-- Image Slider Section -->
+    <section id="image-slider">
+        <div class="slider">
+            <div class="slides">
+                <img src="comp1.jpg" style="height: 300px;width: 300px;padding-right: 20px;" alt="Image 1">
+                <img src="comp2.jpg" style="height: 300px;width: 300px;padding-right: 20px;" alt="Image 2">  
+                <img src="lab.png" style="height: 300px;width: 300px; padding-right: 20px;" alt="Image 3">    
+                <img src="classRoom.png" style="height: 300px;width: 300px; " alt="Image 4">            
+            </div>
+            <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+            <a class="next" onclick="moveSlide(1)">&#10095;</a>
+        </div>
+    </section>
+
+    <section id="department-info">
+        <h2>About the Computer Department</h2>
+        <p>The Computer Department at Gharda Institute of Technology (GIT) is committed to providing quality education and fostering innovative research in the field of computer science and engineering. Our department offers undergraduate programs designed to equip students with the theoretical knowledge and practical skills required to excel in the rapidly evolving technology industry.</p>
+        
+        <h2>Key Features:</h2>
+        <ul>
+            <li>State-of-the-art laboratories equipped with the latest hardware and software.</li>
+            <li>Experienced faculty members with diverse research interests.</li>
+            <li>Strong industry connections and opportunities for internships.</li>
+            <li>Active student organizations and clubs that promote coding, robotics, and more.</li>
+            <li>Focus on research and development with numerous projects and publications.</li>
+        </ul>
+
+        <h2>Our Vision</h2>
+        <p>To be a leader in computer science education, research, and innovation, contributing to the technological advancement of society.</p>
+    </section>
+
+    <footer style="background-color: #000000; color: white; padding: 20px 0; text-align: center;">
+        <div style="max-width: 1200px; margin: auto; display: flex; justify-content: space-between; flex-wrap: wrap; padding: 0 20px;">
+            <!-- Quick Links Section -->
+            <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                <h4>Computer Engineering Resources</h4>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">IEEE Computer Society</a></li>
+                    <li><a href="#" style="color: #f7fff7; text-decoration: none;">ACM Digital Library</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Computer Science Online Courses</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Open Source Projects</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Tech Blogs</a></li>
+                </ul>
+            </div>
+            
+            <!-- Research and Development Section -->
+            <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                <h4>Research and Development</h4>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Artificial Intelligence and Machine Learning</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Cybersecurity Research</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Data Science and Analytics</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Internet of Things (IoT)</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Robotics and Automation</a></li>
+                </ul>
+            </div>
+            
+            <!-- Computer Engineering News Section -->
+            <div style="flex: 1; min-width: 200px; margin-bottom: 20px;">
+                <h4>Computer Engineering News</h4>
+                <ul style="list-style-type: none; padding: 0;">
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Latest Tech News</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Industry Trends</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">New Technologies</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Innovations in Computer Science</a></li>
+                    <li><a href="#" style="color: #f0fff1; text-decoration: none;">Computer Engineering Conferences</a></li>
+                </ul>
+            </div>
+        </div>
+        <p style="margin-top: 20px;color: white;">&copy; 2024 Gharda Institute of Technology, All rights reserved. Developed by Chaitanya Khurd</p>
+    </footer>
+
+    <script>
+        let slideIndex = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelector('.slides');
+            const totalSlides = slides.children.length;
+            
+            if (index >= totalSlides) {
+                slideIndex = 0;
+            } else if (index < 0) {
+                slideIndex = totalSlides - 1;
+            } else {
+                slideIndex = index;
+            }
+            
+            slides.style.transform = `translateX(${-slideIndex * 100}%)`;
+        }
+
+        function moveSlide(step) {
+            showSlide(slideIndex + step);
+        }
+
+        showSlide(slideIndex);
+        
+        setInterval(() => moveSlide(1),111100);
+    </script>
+</body>
+</html>
